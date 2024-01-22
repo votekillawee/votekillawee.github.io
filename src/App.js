@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import {
   Button,
-  Dropdown,
   Flex,
+  Gallery,
+  Icon,
   helpers
 } from 'mdb-react-components';
 
@@ -12,7 +13,11 @@ import './Button.navbar.css';
 
 const isMobileDeviceQuery = '(max-width: 768px)';
 
+const leadingPhotos = ['leading-1.png', 'leading-2.png', 'leading-3.png'];
+
 function App() {
+  console.log(Gallery);
+
   const [isMobileDevice, setIsMobileDevice] = useState(
     helpers.checkMediaQuery(isMobileDeviceQuery)
   );
@@ -30,7 +35,7 @@ function App() {
     <Button className='navbar-transparent'>About</Button>,
     <Button className='navbar-transparent'>Experience</Button>,
     <Button className='navbar-transparent'>Goals</Button>,
-    <Button className='navbar'>I&apos;m In</Button>
+    <Button className='navbar'><Icon.Email /> I&apos;m In</Button>
   ];
 
   const menu = isMobileDevice ? (
@@ -80,26 +85,35 @@ function App() {
       <div
         style={{
           position: 'sticky',
+          zIndex: '99',
           top: 0,
           left: 0,
           width: '100vw',
           height: '64px',
-          borderBottom: '1px solid var(--mdb-border-color)',
+          borderBottom: '1px solid black',
           backgroundColor: 'var(--sfss-red)',
           color: 'white'
         }}
       >
         {menu}
       </div>
+      <Gallery.Slideshow
+        photos={leadingPhotos}
+        thumbnails={leadingPhotos}
+        style={{
+          width: '100vw',
+          height: '768px'
+        }}
+      />
       <Flex.Container
         flow='column nowrap'
         style={{
-          width: 'calc(100vw - 32px)',
+          width: 'min(100vw - 32px, 1024px)',
           height: '200vh',
           margin: 'auto'
         }}
       >
-        <p>Photo Gallery Here</p>
+        <p>Bio here</p>
       </Flex.Container>
     </>
   );
