@@ -1,0 +1,40 @@
+.mdb-button.navbar {
+	background-color: white;
+	color: var(--sfss-red);
+	font-weight: 800;
+}
+
+.mdb-button.navbar:hover {
+	background-color: var(--sfss-red-lighter);
+}
+
+.mdb-button.navbar:hover:active {
+	box-shadow: 0 0 0 1px white;
+	background-color: var(--sfss-red-lighter);
+}
+
+.mdb-button.navbar .mdb-icon {
+	--mdb-icon-color: var(--sfss-red);
+	--mdb-icon-stroke-width: 4px;
+}
+
+.mdb-button.navbar-transparent {
+	box-shadow: 0 0 0 1px var(--sfss-red-light);
+	background-color: var(--sfss-red);
+	color: white;
+}
+
+.mdb-button.navbar-transparent:hover {
+	box-shadow: 0 0 0 1px var(--sfss-red-lighter);
+	background-color: var(--sfss-red-lighter);
+}
+
+.mdb-button.navbar-transparent:hover:active {
+	box-shadow: 0 0 0 1px white;
+	background-color: var(--sfss-red-light);
+}
+
+.mdb-button.navbar-transparent .mdb-icon {
+	--mdb-icon-color: white;
+	--mdb-icon-stroke-width: 4px;
+}
