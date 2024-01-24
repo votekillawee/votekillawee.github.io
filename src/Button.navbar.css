@@ -15,7 +15,7 @@
 
 .mdb-button.navbar .mdb-icon {
 	--mdb-icon-color: var(--sfss-red);
-	--mdb-icon-stroke-width: 2px;
+	--mdb-icon-stroke-width: 3px;
 }
 
 .mdb-button.navbar-transparent {

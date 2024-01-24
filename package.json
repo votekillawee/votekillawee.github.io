@@ -2,7 +2,7 @@
   "name": "votedascout",
   "version": "0.1.0",
   "private": true,
-  "homepage": "votedascout.github.io",
+  "homepage": "https://votedascout.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

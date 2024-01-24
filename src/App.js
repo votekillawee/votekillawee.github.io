@@ -10,6 +10,7 @@ import {
 
 import './index.css';
 import './Button.navbar.css';
+import './Icon.css';
 
 const isMobileDeviceQuery = '(max-width: 768px)';
 
@@ -17,6 +18,7 @@ const leadingPhotos = ['leading-1.png', 'leading-2.png', 'leading-3.png'];
 
 function App() {
   console.log(Gallery);
+  console.log(Icon);
 
   const [isMobileDevice, setIsMobileDevice] = useState(
     helpers.checkMediaQuery(isMobileDeviceQuery)
@@ -32,10 +34,11 @@ function App() {
     </h1>
   ];
   const menuItems = [
+    <Button className='navbar-transparent'><Icon.Email /> I&apos;m In</Button>,
     <Button className='navbar-transparent'>About</Button>,
     <Button className='navbar-transparent'>Experience</Button>,
     <Button className='navbar-transparent'>Goals</Button>,
-    <Button className='navbar'><Icon.Email /> I&apos;m In</Button>
+    <Button className='navbar'>Contact</Button>
   ];
 
   const menu = isMobileDevice ? (
@@ -100,20 +103,46 @@ function App() {
       <Gallery.Slideshow
         photos={leadingPhotos}
         thumbnails={leadingPhotos}
+        showControls={true}
+        showCounter={true}
         style={{
           width: '100vw',
-          height: '768px'
+          height: '70vh'
         }}
       />
       <Flex.Container
         flow='column nowrap'
         style={{
           width: 'min(100vw - 32px, 1024px)',
-          height: '200vh',
-          margin: 'auto'
+          marginLeft: 'auto',
+          marginRight: 'auto'
         }}
       >
-        <p>Bio here</p>
+        <Flex.Container
+          flow='row nowrap'
+          gap='8px'
+          justifyContent='stretch'
+          alignItems='center'
+          style={{
+            width: 'min(512px, 100%)',
+            height: '64px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        >
+          <h3>Get Updates</h3>
+          <Icon.Arrow
+            className='h3'
+            style={{
+              transform: 'rotate(-90deg)'
+            }}
+          />
+          <input
+            placeholder='Email'
+            style={{ flex: '1 0' }}
+          />
+          <Button className='primary'><Icon.Email /> I&apos;m In</Button>
+        </Flex.Container>
       </Flex.Container>
     </>
   );
