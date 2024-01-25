@@ -36,3 +36,87 @@ input {
 input::placeholder {
 	font-style: italic;
 }
+
+.leading {
+	position: relative;
+	width: 100vw;
+	height: 70vh;
+}
+
+.leading .mdb-gallery-slideshow {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+}
+
+.leading h1 {
+	margin: 0;
+	font-size: 32pt;
+	font-weight: 500;
+	color: white;
+}
+
+.leading h1 b {
+	font-weight: 900;
+}
+
+.leading h2 {
+	margin: 0;
+	font-size: 20pt;
+	font-weight: 300;
+	color: white;
+}
+
+.leading h3, a {
+	margin: 8px 0;
+	font-size: 12pt;
+	font-weight: 400;
+	color: white;
+	text-decoration: none;
+}
+
+.leading h3 .mdb-icon {
+	--mdb-icon-color: white;
+}
+
+.main h1 {
+	margin: 32px 0;
+	font-size: 24pt;
+	font-weight: 600;
+	color: var(--sfss-blue);
+}
+
+.main h2 {
+	margin: 24px 0;
+	font-size: 16pt;
+	font-weight: 600;
+	color: var(--sfss-blue);
+}
+
+.main p {
+	margin: 16px 0;
+	font-size: 14pt;
+	font-weight: 400;
+	text-indent: 48px;
+}
+
+.main p.prompt {
+	margin: 0;
+	margin-top: 24px;
+	text-align: center;
+	font-size: 12pt;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.footer {
+	width: calc(100vw - 64px);
+	margin-top: 32px;
+	padding: 32px;
+	background-color: black;
+	color: white;
+}
+
+.footer p {
+	margin: 4px 0;
+}
