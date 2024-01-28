@@ -12,19 +12,28 @@ html {
 	scroll-padding-top: 72px;
 }
 
-h1.title {
+a.title {
+	display: block;
 	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
 	font-size: 16pt;
 	white-space: nowrap;
+	color: white;
+	text-decoration: none;
 }
 
-h1.title b {
+a.title b {
 	font-weight: 700;
 }
 
 .mdb-button.primary .mdb-icon {
 	--mdb-icon-stroke-width: 3px;
+}
+
+.mdb-icon.h3 {
+	width: 20px;
+	height: 20px;
+	--mdb-icon-stroke-width: 4px;
 }
 
 input {
@@ -83,6 +92,12 @@ input::placeholder {
 	--mdb-icon-color: white;
 }
 
+.main {
+	width: min(100vw - 32px, var(--mdb-page-width));
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .main h1 {
 	margin: 32px 0;
 	font-size: 24pt;
@@ -97,7 +112,7 @@ input::placeholder {
 	color: var(--sfss-blue);
 }
 
-.main p {
+.main p:not(.prompt) {
 	margin: 16px 0;
 	font-size: 14pt;
 	font-weight: 400;
@@ -123,4 +138,46 @@ input::placeholder {
 
 .footer p {
 	margin: 4px 0;
+}
+
+.mdb-button.navbar {
+	background-color: white;
+	color: var(--sfss-red);
+	font-weight: 800;
+}
+
+.mdb-button.navbar:hover {
+	background-color: var(--sfss-red-lighter);
+}
+
+.mdb-button.navbar:hover:active {
+	box-shadow: 0 0 0 1px white;
+	background-color: var(--sfss-red-lighter);
+}
+
+.mdb-button.navbar .mdb-icon {
+	--mdb-icon-color: var(--sfss-red);
+	--mdb-icon-stroke-width: 3px;
+}
+
+.mdb-button.navbar-transparent {
+	box-shadow: 0 0 0 1px var(--sfss-red-light);
+	background-color: var(--sfss-red);
+	color: white;
+}
+
+.mdb-button.navbar-transparent:hover,
+.mdb-button.navbar-transparent.selected {
+	box-shadow: 0 0 0 1px var(--sfss-red-lighter);
+	background-color: var(--sfss-red-lighter);
+}
+
+.mdb-button.navbar-transparent:hover:active {
+	box-shadow: 0 0 0 1px white;
+	background-color: var(--sfss-red-light);
+}
+
+.mdb-button.navbar-transparent .mdb-icon {
+	--mdb-icon-color: white;
+	--mdb-icon-stroke-width: 2px;
 }
