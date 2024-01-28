@@ -50,10 +50,10 @@ function App() {
     </h1>
   ];
   const menuItems = [
-    <Button className='navbar-transparent'><Icon.Email /> I&apos;m In</Button>,
-    <Button className='navbar-transparent'>About Me</Button>,
-    <Button className='navbar-transparent'>Plans</Button>,
-    <Button className='navbar'>Contact</Button>
+    <Button className='navbar-transparent' href='#about'>About Me</Button>,
+    <Button className='navbar-transparent' href='#experience'>Experience</Button>,
+    <Button className='navbar-transparent' href='#plans'>Plans</Button>,
+    <Button className='navbar' href='#emails'><Icon.Email /> I&apos;m In</Button>,
   ];
 
   const menu = isMobileDevice ? (
@@ -266,7 +266,7 @@ function App() {
           marginRight: 'auto'
         }}
       >
-        <p className='prompt'>
+        <p className='prompt' id='emails'>
           <i>Submit your email to receive a reminder when voting begins!</i>
         </p>
         <Flex.Container
@@ -294,7 +294,15 @@ function App() {
           />
           <Button className='primary'><Icon.Email /> I&apos;m In</Button>
         </Flex.Container>
-        <h1>About Me</h1>
+        <Grid.Container
+          columns='1fr 1fr 1fr'
+          rows=''
+          areas={[
+            'picture about about',
+            'experience experience experience',
+            'plans plans plans'
+          ]}
+        <h1 id='about'>About Me</h1>
         {collapsible(
           <img
             src='sam.png'
@@ -312,11 +320,11 @@ function App() {
             {secondYear}
           </div>
         )}
-        <h1>Experience</h1>
+        <h1 id='experience'>Experience</h1>
         <section>{vpAcademic}</section>
         <section>{councilRep}</section>
         <section>{viceChair}</section>
-        <h1>Goals</h1>
+        <h1 id='plans'>Plans</h1>
         <section>{vpInternal}</section>
       </Flex.Container>
       <Flex.Container
