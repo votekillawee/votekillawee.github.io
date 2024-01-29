@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from 'mdb-react-components';
 
 export function Navbar(props) {
-  const { isMobileDevice, children } = props;
+  const { children } = props;
 
   return (
     <div

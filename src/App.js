@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Dropdown, Flex, Icon, helpers } from 'mdb-react-components';
 import { Footer, Leading, Navbar, SubmitEmail } from './components';
-import { Pages } from './Pages';
+import { Admin, Pages } from './Pages';
 
 const isMobileDeviceQuery = '(max-width: 768px)';
 const leading = ['/leading/1.png', '/leading/2.png'];
@@ -11,6 +11,7 @@ function App() {
     helpers.checkMediaQuery(isMobileDeviceQuery)
   );
   const [view, setView] = useState('home');
+  const [adminPassword, setAdminPassword] = useState(null);
 
   // watch the is mobile device media query
   useEffect(() => {
@@ -20,22 +21,26 @@ function App() {
     const params = new URL(window.location.href).searchParams;
     const newView = params.get('view');
 
-    if (newView === null || Pages[newView] === undefined) {
+    if (newView === null) {
       setView('home');
     } else {
       setView(newView);
+
+      if (newView === 'admin') {
+        setAdminPassword(params.get('password'));
+      }
     }
   }, []);
 
   const menuButtons = [
     ...Object.keys(Pages).map(
       key => {
-        // don't add a button for the home page
-        if (key === 'home') return [];
-
         return (
           <Button
-            className={!isMobileDevice ? 'navbar-transparent' : undefined}
+            className={helpers.classList([
+              !isMobileDevice ? 'navbar-transparent' : '',
+              view === key ? 'selected' : ''
+            ])}
             href={`?view=${key}`}
           >
             {Pages[key].displayName}
@@ -45,17 +50,17 @@ function App() {
     ),
     <Button
       className={isMobileDevice ? 'primary' : 'navbar'}
-      href='?view=emails'
+      href='#email'
     >
       <Icon.Email /> I&apos;m In
     </Button>
   ];
 
-  const Page = Pages[view].component;
+  const Page = view === 'admin' ? [] : Pages[view].component;
 
   return (
     <>
-      <Navbar isMobileDevice={isMobileDevice}>
+      <Navbar>
         <a href='?view=home' className='title'>
           <b>Sam Killawee</b> For <b>VP Internal</b>
         </a>
@@ -77,22 +82,39 @@ function App() {
           </Flex.Container>
         )}
       </Navbar>
-      <Leading leading={leading}>
-        <h1>Vote <b>Sam</b> for <b>VP Internal</b></h1>
-        <h2>For a community-centric SFU</h2>
-      </Leading>
+      {view === 'home' ? (
+        <Leading leading={leading}>
+          <h1>Unity, Community, Capability!</h1>
+          <h1>Choose <b>Sam Killawee!</b></h1>
+        </Leading>
+      ) : []}
       <Flex.Container
         flow='column nowrap'
         justifyContent='flex-start'
         alignItems='center'
         className='page-container'
       >
-        <hr />
-        <SubmitEmail isMobileDevice={isMobileDevice} />
-        <hr />
-        <Page />
+        {view === 'home' ? (
+          <>
+            <hr />
+            <SubmitEmail isMobileDevice={isMobileDevice} />
+            <hr />
+          </>
+        ) : []}
+        {/* admin view requires a password */}
+        {view === 'admin' ? (
+          <Admin password={adminPassword} />
+        ) : (
+          <Page />
+        )}
+        {view !== 'home' && view !== 'admin' ? (
+          <>
+            <hr />
+            <SubmitEmail isMobileDevice={isMobileDevice} />
+          </>
+        ) : []}
       </Flex.Container>
-      <Footer />
+      {view !== 'admin' ? <Footer /> : []}
     </>
   );
 }

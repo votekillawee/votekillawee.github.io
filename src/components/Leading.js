@@ -5,7 +5,7 @@ export function Leading(props) {
   const { leading, children } = props;
 
   return (
-    <div id='leading' className='leading'>
+    <div id='leading'>
       <Gallery.Slideshow
         photos={leading}
         thumbnails={leading}

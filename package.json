@@ -40,10 +40,6 @@
         "error",
         "always"
       ],
-      "quotes": [
-        "error",
-        "single"
-      ],
       "max-len": [
         "error",
         150

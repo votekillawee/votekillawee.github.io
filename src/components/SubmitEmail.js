@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Button, Flex, Icon, helpers } from 'mdb-react-components';
+// import axios from 'axios';
+import { Button, Flex, Icon } from 'mdb-react-components';
 
 export function SubmitEmail(props) {
   const { isMobileDevice } = props;
@@ -16,16 +16,21 @@ export function SubmitEmail(props) {
       );
 
       if (!String(email).match(emailRegExp)) {
-        setStatusText('Invalid email; double check it?');
+        setStatusText('Invalid email; double check for typos?');
         throw new Error('Invalid email.');
       }
 
-      const response = await axios.post(
+      /*
+      await axios.post(
         'https://api.micahdb.com/emails/submit',
         { name, email }
       );
+      */
 
-      setStatusText('Your email has been received. Thank you!');
+      setStatusText('Prevented at the moment.');
+      throw new Error('Prevented ATM');
+
+      setStatusText('Your email was received. Thank you!');
 
       // reset input fields
       setName('');
@@ -33,7 +38,7 @@ export function SubmitEmail(props) {
     } catch (error) {
       // error is from the server
       if (error.response) {
-        setStatusText('Invalid email; already submitted before!');
+        setStatusText('Invalid email; it was submitted before.');
       }
 
       console.log(error);
@@ -41,7 +46,7 @@ export function SubmitEmail(props) {
   }
 
   return (
-    <>
+    <div id='email'>
       <Flex.Container
         flow={isMobileDevice ? 'column nowrap' : 'row nowrap'}
         gap='16px'
@@ -56,7 +61,7 @@ export function SubmitEmail(props) {
           style={{ width: '240px' }}
         >
           <h3>Get Updates!</h3>
-          <p>Submit your email and I&apos;ll send a reminder when voting begins.</p>
+          <p>Submit your email and I&apos;ll send you a reminder when voting begins.</p>
         </Flex.Container>
         <Flex.Container
           flow='column nowrap'
@@ -82,6 +87,6 @@ export function SubmitEmail(props) {
       {statusText !== null ? (
         <p>{statusText}</p>
       ) : []}
-    </>
+    </div>
   );
 }
