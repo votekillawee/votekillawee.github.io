@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import { Button, Flex, Icon } from 'mdb-react-components';
 
 export function SubmitEmail(props) {
@@ -20,15 +20,10 @@ export function SubmitEmail(props) {
         throw new Error('Invalid email.');
       }
 
-      /*
       await axios.post(
         'https://api.micahdb.com/emails/submit',
         { name, email }
       );
-      */
-
-      setStatusText('Prevented at the moment.');
-      throw new Error('Prevented ATM');
 
       setStatusText('Your email was received. Thank you!');
 
