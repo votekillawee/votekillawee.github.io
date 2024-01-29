@@ -30,10 +30,24 @@ a.title b {
 	--mdb-icon-stroke-width: 3px;
 }
 
-.mdb-icon.h3 {
+.submit-email h3 {
+	margin: 8px 0;
+	font-size: 16pt;
+}
+
+.submit-email p {
+	margin: 8px 0;
+	text-indent: 32px;
+}
+
+.submit-email .mdb-icon {
 	width: 20px;
 	height: 20px;
 	--mdb-icon-stroke-width: 4px;
+}
+
+.submit-email .mdb-icon.rotate {
+	transform: rotate(-90deg);
 }
 
 input {
@@ -92,34 +106,41 @@ input::placeholder {
 	--mdb-icon-color: white;
 }
 
-.main {
+.page-container {
 	width: min(100vw - 32px, var(--mdb-page-width));
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.main h1 {
+.page-container hr {
+	margin: 24px 0;
+	border: none;
+	width: 100%;
+	border-bottom: 2px solid #e0e0e0;
+}
+
+#main h1 {
 	margin: 32px 0;
 	font-size: 24pt;
 	font-weight: 600;
 	color: var(--sfss-blue);
 }
 
-.main h2 {
+#main h2 {
 	margin: 24px 0;
 	font-size: 16pt;
 	font-weight: 600;
 	color: var(--sfss-blue);
 }
 
-.main p:not(.prompt) {
+#main p:not(.prompt) {
 	margin: 16px 0;
 	font-size: 14pt;
 	font-weight: 400;
 	text-indent: 48px;
 }
 
-.main p.prompt {
+#main p.prompt {
 	margin: 0;
 	margin-top: 24px;
 	text-align: center;

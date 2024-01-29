@@ -2,13 +2,13 @@ import React from 'react';
 
 function Home() {
   return (
-    <p>Hello, world!</p>
+    <p id='main'>Hello, world!</p>
   );
 }
 
 function About() {
   return (
-    <>
+    <div id='main'>
       <h1>About</h1>
       <h2>My name is Sam.</h2>
       <p>
@@ -110,7 +110,7 @@ function About() {
       <h2>
         By electing me as Vice President Internal of the SFSS, I will work to these ends!
       </h2>
-    </>
+    </div>
   );
 }
 

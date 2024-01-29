@@ -1,33 +1,35 @@
 import React from 'react';
-import { Button, Flex, Icon } from 'mdb-react-components';
+import { Button, Flex, Icon, helpers } from 'mdb-react-components';
 
 export function SubmitEmail(props) {
+  const { isMobileDevice } = props;
+
   return (
     <Flex.Container
-      flow='row nowrap'
-      gap='8px'
+      flow={isMobileDevice ? 'column nowrap' : 'row nowrap'}
+      gap='16px'
       justifyContent='center'
-      alignItems='center'
-      style={{
-        width: '100%',
-        height: '64px'
-      }}
+      alignItems='stretch'
+      className='submit-email'
     >
-      <h3>Get Updates</h3>
-      <Icon.Arrow
-        className='h3'
-        style={{
-          transform: 'rotate(-90deg)'
-        }}
-      />
-      <input
-        placeholder='Email'
-        style={{
-          maxWidth: '256px',
-          flex: '1 1'
-        }}
-      />
-      <Button className='primary'><Icon.Email /> I&apos;m In</Button>
+      <Flex.Container
+        flow='column nowrap'
+        justifyContent='center'
+        alignItems='flex-start'
+        style={{ width: '240px' }}
+      >
+        <h3>Get Updates!</h3>
+        <p>Submit your email and I&apos;ll send a reminder when voting begins.</p>
+      </Flex.Container>
+      <Flex.Container
+        flow='column nowrap'
+        gap='8px'
+        alignItems='stretch'
+      >
+        <input placeholder='Name' />
+        <input placeholder='Email' />
+        <Button className='primary'><Icon.Email /> I&apos;m In</Button>
+      </Flex.Container>
     </Flex.Container>
   );
 }

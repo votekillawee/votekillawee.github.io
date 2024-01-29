@@ -20,7 +20,7 @@ export function Navbar(props) {
     >
       <Flex.Container
         flow='row nowrap'
-        justifyContent={isMobileDevice ? 'center' : 'space-between'}
+        justifyContent='space-between'
         alignItems='center'
         style={{
           position: 'absolute',

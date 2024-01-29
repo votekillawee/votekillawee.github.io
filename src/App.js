@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Flex, Icon, helpers } from 'mdb-react-components';
+import { Button, Dropdown, Flex, Icon, helpers } from 'mdb-react-components';
 import { Leading, Navbar, SubmitEmail } from './components';
 import { Pages } from './Pages';
 
@@ -27,6 +27,30 @@ function App() {
     }
   }, []);
 
+  const menuButtons = [
+    ...Object.keys(Pages).map(
+      key => {
+        // don't add a button for the home page
+        if (key === 'home') return [];
+
+        return (
+          <Button
+            className={!isMobileDevice ? 'navbar-transparent' : undefined}
+            href={`?view=${key}`}
+          >
+            {Pages[key].displayName}
+          </Button>
+        );
+      }
+    ),
+    <Button
+      className={isMobileDevice ? 'primary' : 'navbar'}
+      href='?view=emails'
+    >
+      <Icon.Email /> I&apos;m In
+    </Button>
+  ];
+
   const Page = Pages[view].component;
 
   return (
@@ -35,33 +59,23 @@ function App() {
         <a href='?view=home' className='title'>
           <b>Sam Killawee</b> For <b>SFSS VP Internal</b>
         </a>
-        <Flex.Container
-          flow='row nowrap'
-          gap='8px'
-          alignItems='center'
-        >
-          {Object.keys(Pages).map(
-            key => {
-              // don't add a button for the home page
-              if (key === 'home') return [];
-
-              return (
-                <Button
-                  className={helpers.classList([
-                    'navbar-transparent',
-                    key === view ? 'selected' : ''
-                  ])}
-                  href={`?view=${key}`}
-                >
-                  {Pages[key].displayName}
-                </Button>
-              );
-            }
-          )}
-          <Button className='navbar' href='?view=emails'>
-            <Icon.Email /> I&apos;m In
-          </Button>
-        </Flex.Container>
+        {isMobileDevice ? (
+          <Dropdown
+            className='large navbar-transparent icon'
+            icon='hamburger'
+            align='right'
+          >
+            {menuButtons}
+          </Dropdown>
+        ) : (
+          <Flex.Container
+            flow='row nowrap'
+            gap='8px'
+            alignItems='center'
+          >
+            {menuButtons}
+          </Flex.Container>
+        )}
       </Navbar>
       <Leading leading={leading}>
         <h1>Vote <b>Sam</b> for <b>VP Internal</b></h1>
@@ -69,12 +83,13 @@ function App() {
       </Leading>
       <Flex.Container
         flow='column nowrap'
-        className='main'
+        justifyContent='flex-start'
+        alignItems='center'
+        className='page-container'
       >
-        <p className='prompt' id='emails'>
-          <i>Submit your email to receive a reminder when voting begins!</i>
-        </p>
-        <SubmitEmail />
+        <hr />
+        <SubmitEmail isMobileDevice={isMobileDevice} />
+        <hr />
         <Page />
       </Flex.Container>
       <Flex.Container
