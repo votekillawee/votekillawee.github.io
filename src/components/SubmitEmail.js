@@ -26,8 +26,8 @@ export function SubmitEmail(props) {
         gap='8px'
         alignItems='stretch'
       >
-        <input placeholder='Name' />
-        <input placeholder='Email' />
+        <input placeholder='Name' type='text' />
+        <input placeholder='Email' type='email' />
         <Button className='primary'><Icon.Email /> I&apos;m In</Button>
       </Flex.Container>
     </Flex.Container>
