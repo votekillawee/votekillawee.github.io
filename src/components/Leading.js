@@ -2,13 +2,13 @@ import React from 'react';
 import { Gallery, Flex } from 'mdb-react-components';
 
 export function Leading(props) {
-  const { leading, children } = props;
+  const { photos, thumbnails, children } = props;
 
   return (
     <div id='leading'>
       <Gallery.Slideshow
-        photos={leading}
-        thumbnails={leading}
+        photos={photos}
+        thumbnails={thumbnails}
         showControls={true}
         showCounter={true}
       />

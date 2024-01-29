@@ -4,7 +4,8 @@ import { Footer, Leading, Navbar, SubmitEmail } from './components';
 import { Admin, Pages } from './Pages';
 
 const isMobileDeviceQuery = '(max-width: 768px)';
-const leading = ['/leading/1.png', '/leading/2.png'];
+const photos = ['/leading/1.png', '/leading/2.png'];
+const thumbnails = ['/leading/1.jpg', '/leading/2.jpg'];
 
 function App() {
   const [isMobileDevice, setIsMobileDevice] = useState(
@@ -83,7 +84,7 @@ function App() {
         )}
       </Navbar>
       {view === 'home' ? (
-        <Leading leading={leading}>
+        <Leading photos={photos} thumbnails={thumbnails}>
           <h1>Unity, Community, Capability!</h1>
           <h1>Choose <b>Sam Killawee!</b></h1>
         </Leading>
