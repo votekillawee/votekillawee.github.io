@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Dropdown, Flex, Icon, helpers } from 'mdb-react-components';
-import { Leading, Navbar, SubmitEmail } from './components';
+import { Footer, Leading, Navbar, SubmitEmail } from './components';
 import { Pages } from './Pages';
 
 const isMobileDeviceQuery = '(max-width: 768px)';
@@ -57,7 +57,7 @@ function App() {
     <>
       <Navbar isMobileDevice={isMobileDevice}>
         <a href='?view=home' className='title'>
-          <b>Sam Killawee</b> For <b>SFSS VP Internal</b>
+          <b>Sam Killawee</b> For <b>VP Internal</b>
         </a>
         {isMobileDevice ? (
           <Dropdown
@@ -92,23 +92,7 @@ function App() {
         <hr />
         <Page />
       </Flex.Container>
-      <Flex.Container
-        flow='row nowrap'
-        gap='32px'
-        justifyContent='center'
-        alignItems='flex-start'
-        className='footer'
-      >
-        <div>
-          <p>Quick Links</p>
-          <p><u>Top</u></p>
-          <p><u>I&apos;m In!</u></p>
-        </div>
-        <div>
-          <p>Contact Me</p>
-          <p>Email: sam@sam.sam</p>
-        </div>
-      </Flex.Container>
+      <Footer />
     </>
   );
 }
